@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply antialiased; }
+  body { @apply bg-ink-50 text-ink-900 dark:bg-ink-950 dark:text-ink-100; }
+  ::selection { @apply bg-brand-200 text-ink-900; }
+}
+
+@layer components {
+  .field-label { @apply mb-1.5 block text-sm font-medium text-ink-700 dark:text-ink-300; }
+  .field { @apply w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm text-ink-900 shadow-sm outline-none transition
+    placeholder:text-ink-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20
+    disabled:cursor-not-allowed disabled:opacity-60
+    dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 dark:placeholder:text-ink-500; }
+  .table-head { @apply px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400; }
+  .table-cell { @apply px-4 py-3 text-sm text-ink-700 dark:text-ink-300; }
+}

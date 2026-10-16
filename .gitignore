@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+backend/data/
+
+# Node
+node_modules/
+dist/
+*.log
+.vite/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Supabase CLI local state (project link, temp files)
+supabase/.temp/
+backend/supabase/.temp/
+supabase/.branches/

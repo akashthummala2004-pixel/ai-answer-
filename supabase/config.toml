@@ -1,0 +1,14 @@
+# Supabase CLI configuration for AI Answer Verification.
+# Deliberately minimal: it declares ONE remote setting, so `config push` can change nothing else.
+#   npx supabase@2.121.0 config diff     (preview, read-only)
+#   npx supabase@2.121.0 config push     (shows the diff and asks before writing)
+# Settings not declared here (database pooling, storage, image transformation, other auth options)
+# are reported as "remote-only" and left unchanged.
+
+project_id = "ai-answer-verification"
+
+[auth.email]
+# LOCAL DEMO SETTING: new accounts can sign in without clicking a confirmation email.
+# Supabase's built-in mailer is heavily rate-limited, so confirmations block demos and testing.
+# Set back to true (and configure SMTP) before any real or shared use.
+enable_confirmations = false
