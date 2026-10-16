@@ -39,6 +39,8 @@ class Settings(BaseSettings):
     supabase_timeout_seconds: float = Field(default=15, ge=2, le=60)
 
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+    # Optional regex for extra origins, e.g. Vercel production and preview URLs.
+    cors_origin_regex: str = ""
     local_data_dir: str = "data"
 
     @property

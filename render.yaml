@@ -1,0 +1,29 @@
+# Render Blueprint for the FastAPI backend. Secrets (sync: false) are entered in the Render dashboard.
+services:
+  - type: web
+    name: ai-answer-verification-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.5
+      - key: APP_ENV
+        value: production
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: OPENROUTER_DEFAULT_MODEL
+        value: openai/gpt-4o-mini
+      - key: OPENROUTER_MODELS
+        value: openai/gpt-4o-mini,openai/gpt-4o,anthropic/claude-3.5-haiku,google/gemma-3-27b-it
+      - key: CORS_ORIGINS
+        value: http://localhost:5173,http://127.0.0.1:5173
+      - key: CORS_ORIGIN_REGEX
+        value: ^https://ai-answer[a-z0-9-]*\.vercel\.app$
